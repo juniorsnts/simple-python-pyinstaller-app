@@ -2,13 +2,13 @@ pipeline {
   agent none
   stages {
     stage('Build'){
-      echo "Gerando build"
       agent {
         docker {
           image 'python:2-alpine'
         }
       }
       steps {
+        echo "Gerando build"
         sh 'python -m py_compile sources/add2vals.py sources/calc.py'
       }
     }
